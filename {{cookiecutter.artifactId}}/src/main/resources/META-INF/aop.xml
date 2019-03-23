@@ -1,0 +1,5 @@
+<aspectj>
+	<weaver options="${aspectj.weaver.options}">
+		<include within="{{ cookiecutter.groupId }}.{{ cookiecutter.appname }}..*" />
+	</weaver>
+</aspectj>
