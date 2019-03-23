@@ -1,0 +1,7 @@
+{
+	"project_name": "OLAT Extension",
+	"appname": "olatapp",
+	"groupId": "ch.uzh.extension",
+	"artifactId": "lmsuzh-extension-{{ cookiecutter.appname }}",
+	"_copy_without_render": [".idea"]
+}

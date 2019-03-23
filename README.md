@@ -1,0 +1,1 @@
+# An OLAT extension
