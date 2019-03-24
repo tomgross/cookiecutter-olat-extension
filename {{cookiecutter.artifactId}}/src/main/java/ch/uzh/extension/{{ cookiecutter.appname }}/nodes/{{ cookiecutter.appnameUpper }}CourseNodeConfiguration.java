@@ -29,7 +29,7 @@ public class {{ cookiecutter.appnameUpper }}CourseNodeConfiguration extends Abst
 									LmsuzhTranslator translator) {
 		this.{{ cookiecutter.appname }}CourseNode = {{ cookiecutter.appname }}CourseNode;
 		this.translator = translator;
-		setOrder(220);
+		setOrder(250);
 	}
 
 	@Override

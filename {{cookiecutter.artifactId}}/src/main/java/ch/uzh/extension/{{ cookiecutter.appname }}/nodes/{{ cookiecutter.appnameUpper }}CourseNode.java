@@ -3,19 +3,14 @@ package ch.uzh.extension.{{ cookiecutter.appname }}.nodes;
 import ch.uzh.extension.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}BeanFactory;
 import ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller.{{ cookiecutter.appnameUpper }}NodeEditController;
 import ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller.{{ cookiecutter.appnameUpper }}NodeRunController;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import com.thoughtworks.xstream.annotations.XStreamConverter;
 import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.components.stack.BreadcrumbPanel;
 import org.olat.core.gui.control.WindowControl;
-import org.olat.core.id.Identity;
 import org.olat.course.ICourse;
 import org.olat.course.editor.CourseEditorEnv;
 import org.olat.course.editor.NodeEditController;
 import org.olat.course.editor.StatusDescription;
-import org.olat.course.export.CourseEnvironmentMapper;
 import org.olat.course.nodes.AbstractAccessableCourseNode;
-import org.olat.course.nodes.CourseNode;
 import org.olat.course.run.navigation.NodeRunConstructionResult;
 import org.olat.course.run.userview.NodeEvaluation;
 import org.olat.course.run.userview.UserCourseEnvironment;
@@ -25,10 +20,6 @@ import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-
-import java.io.File;
-import java.util.List;
-import java.util.Locale;
 
 /**
  *
