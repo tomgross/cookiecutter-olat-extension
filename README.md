@@ -64,3 +64,11 @@ public class LmsuzhProductionEnvironmentProperties implements
 }
 ```
 
+Add pointer to spring context in *lmsuzh-extension-config/src/main/resources/configContext.xml*:
+
+```xml
+
+ <import resource="classpath:myappContext.xml" />
+
+```
+ 
