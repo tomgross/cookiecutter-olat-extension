@@ -15,3 +15,52 @@ Create submodule in *lmsuzh-extension-DEVELOPMENT*:
  $ cookiecutter https://github.com/tomgross/cookiecutter-olat-extension
 
 ```
+
+Include submodule in main *pom.xml*:
+
+ 
+```xml
+
+	<modules>
+...
+		<module>lmsuzh-extension-myapp</module>
+...
+    </modules>
+
+```
+
+Include submodule as dependency in *lmsuzh-extension-config*:
+
+
+```xml
+
+	<dependencies>
+	    ...
+		<dependency>
+			<groupId>ch.uzh.extension</groupId>
+			<artifactId>lmsuzh-extension-myapp</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+    </dependencies>
+```
+
+and  *LmsuzhProductionEnvironmentProperties*,
+*LmsuzhTestingEnvironmentProperties*, *LmsuzhDevelopmentEnvironmentProperties*
+properties:
+
+```java
+
+package ch.uzh.extension.config.properties;
+
+/* ... more imports ... */
+import ch.uzh.extension.myapp.environment.MyappProductionEnvironmentProperties;
+
+
+@Component
+@Profile(PRODUCTION)
+public class LmsuzhProductionEnvironmentProperties implements
+    /* ... more implements ... */
+	MyappProductionEnvironmentProperties {
+}
+```
+

@@ -1,6 +1,6 @@
 {
 	"project_name": "OLAT Extension",
-	"appname": "olatapp",
+	"appname": "h5p",
 	"appnameUpper": "{{ cookiecutter.appname | capitalize }}",
 	"artifactId": "lmsuzh-extension-{{ cookiecutter.appname }}",
 	"groupId": "ch.uzh.extension"

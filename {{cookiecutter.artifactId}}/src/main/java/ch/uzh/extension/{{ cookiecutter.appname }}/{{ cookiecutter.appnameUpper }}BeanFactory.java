@@ -1,6 +1,9 @@
 package ch.uzh.extension.{{ cookiecutter.appname }};
 
 import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslator;
+import ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller.{{ cookiecutter.appnameUpper }}NodeEditController;
+import ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller.{{ cookiecutter.appnameUpper }}NodeRunController;
+import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
 import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.control.WindowControl;
 import org.olat.course.ICourse;
@@ -35,25 +38,19 @@ public abstract class {{ cookiecutter.appnameUpper }}BeanFactory {
 		this.repositoryEntryDAO = repositoryEntryDAO;
 		this.repositoryEntryRelationDAO = repositoryEntryRelationDAO;
 	}
-	
-	public {{ cookiecutter.appnameUpper }}CourseNodeDto create{{ cookiecutter.appnameUpper }}CourseNodeDto(ICourse courseResource) {
-		{{ cookiecutter.appnameUpper }}CourseNodeDto o{{ cookiecutter.appname }}CourseNodeDto = new {{ cookiecutter.appnameUpper }}CourseNodeDto(this, new AvailableDtoChangeListeners());
-		o{{ cookiecutter.appname }}CourseNodeDto.setCourseResourceId(courseResource.getResourceableId());
-		return o{{ cookiecutter.appname }}CourseNodeDto;
+
+	public {{ cookiecutter.appnameUpper }}NodeEditController createNodeEditController(UserRequest userRequest,
+		WindowControl windowControl,
+		ICourse courseResource,
+		UserCourseEnvironment userCourseEnvironment) {
+		return new {{ cookiecutter.appnameUpper }}NodeEditController(this, userRequest,
+		windowControl, courseResource, userCourseEnvironment, lmsuzhTranslator);
 	}
 
-	public {{ cookiecutter.appnameUpper }}CourseNodeDto create{{ cookiecutter.appnameUpper }}CourseNodeDto(ICourse courseResource,
-															 Collection<? extends Event> selectedEvents) {
-		{{ cookiecutter.appnameUpper }}CourseNodeDto o{{ cookiecutter.appname }}CourseNodeDto = new {{ cookiecutter.appnameUpper }}CourseNodeDto(this,
-				new AvailableDtoChangeListeners(), new EventList(selectedEvents));
-		o{{ cookiecutter.appname }}CourseNodeDto.setCourseResourceId(courseResource.getResourceableId());
-		return o{{ cookiecutter.appname }}CourseNodeDto;
+	public {{ cookiecutter.appnameUpper }}NodeRunController create{{ cookiecutter.appnameUpper }}NodeRunController(
+			{{ cookiecutter.appnameUpper }}CourseNode courseNode, UserRequest userRequest, WindowControl windowControl) {
+		return new {{ cookiecutter.appnameUpper }}NodeRunController(
+				userRequest, windowControl, courseNode, lmsuzhTranslator);
 	}
 
-	public {{ cookiecutter.appnameUpper }}NodeRunController create{{ cookiecutter.appnameUpper }}NodeRunController({{ cookiecutter.appnameUpper }}CourseNode courseNode,
-																	 UserRequest userRequest,
-																	 WindowControl windowControl) {
-		return new {{ cookiecutter.appnameUpper }}NodeRunController(userRequest, windowControl,
-				courseNode, lmsuzhTranslator);
-	}
 }
