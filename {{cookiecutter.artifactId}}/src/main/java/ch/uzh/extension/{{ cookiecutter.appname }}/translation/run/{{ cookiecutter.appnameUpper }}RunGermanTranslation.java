@@ -9,6 +9,7 @@ public class {{ cookiecutter.appnameUpper }}RunGermanTranslation extends GermanT
 
 	public {{ cookiecutter.appnameUpper }}RunGermanTranslation(String courseNodeName) {
 		super({{ cookiecutter.appnameUpper }}TranslationKeyPrefix.class,
+			new String[]{"course.node.title", courseNodeName},
 			new String[]{"save", "Speichern"},
 			new String[]{"reset", "Zurücksetzen"},
 			new String[]{"cancel", "Abbrechen"},

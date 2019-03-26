@@ -11,8 +11,7 @@
 	       http://www.springframework.org/schema/cache
 	       http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-	<context:spring-configured />
-	<cache:annotation-driven mode="aspectj" />
+<context:spring-configured />
 
-	<context:component-scan base-package="{{cookiecutter.groupId}}.{{cookiecutter.appname}}" />
+<context:component-scan base-package="{{cookiecutter.groupId}}.{{cookiecutter.appname}}" />
 </beans>

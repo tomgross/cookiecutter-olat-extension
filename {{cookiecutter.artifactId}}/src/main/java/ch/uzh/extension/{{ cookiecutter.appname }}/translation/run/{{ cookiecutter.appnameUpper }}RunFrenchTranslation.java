@@ -9,6 +9,7 @@ public class {{ cookiecutter.appnameUpper }}RunFrenchTranslation extends FrenchT
 
 	public {{ cookiecutter.appnameUpper }}RunFrenchTranslation(String courseNodeName) {
 		super({{ cookiecutter.appnameUpper }}TranslationKeyPrefix.class,
+			new String[]{"course.node.title", courseNodeName},
 			new String[]{"save", "Sauvegarder"},
 			new String[]{"reset", "Réinitialiser"},
 			new String[]{"cancel", "Annuler"},

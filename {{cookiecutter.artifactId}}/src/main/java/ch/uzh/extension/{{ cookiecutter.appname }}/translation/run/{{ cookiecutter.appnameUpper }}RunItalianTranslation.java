@@ -9,6 +9,7 @@ public class {{ cookiecutter.appnameUpper }}RunItalianTranslation extends Italia
 
 	public {{ cookiecutter.appnameUpper }}RunItalianTranslation(String courseNodeName) {
 		super({{ cookiecutter.appnameUpper }}TranslationKeyPrefix.class,
+			new String[]{"course.node.title", courseNodeName},
 			new String[]{"save", "Salvare"},
 			new String[]{"reset", "Resettare"},
 			new String[]{"cancel", "Annullare"},

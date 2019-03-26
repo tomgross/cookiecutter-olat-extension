@@ -9,6 +9,7 @@ public class {{ cookiecutter.appnameUpper }}RunEnglishTranslation extends Englis
 
 	public {{ cookiecutter.appnameUpper }}RunEnglishTranslation(String courseNodeName) {
 		super({{ cookiecutter.appnameUpper }}TranslationKeyPrefix.class,
+			new String[]{"course.node.title", courseNodeName},
 			new String[]{"save", "Save"},
 			new String[]{"reset", "Reset"},
 			new String[]{"cancel", "Cancel"},

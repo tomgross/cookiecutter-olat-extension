@@ -1,7 +1,6 @@
 package ch.uzh.extension.{{ cookiecutter.appname }}.nodes;
 
 import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslator;
-import ch.uzh.extension.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}BeanFactory;
 import org.olat.course.nodes.AbstractCourseNodeConfiguration;
 import org.olat.course.nodes.CourseNode;
 import org.olat.course.nodes.CourseNodeGroup;
@@ -54,7 +53,6 @@ public class {{ cookiecutter.appnameUpper }}CourseNodeConfiguration extends Abst
 
 	@Override
 	public String getIconCSSClass() {
-		return "o_podcast_icon";
-		// return "o_{{ cookiecutter.appname }}_icon";
+		return "o_{{ cookiecutter.appname }}_icon";
 	}
 }

@@ -29,7 +29,7 @@ import org.springframework.stereotype.Component;
 @Configurable(preConstruction = true)
 public class {{ cookiecutter.appnameUpper }}CourseNode extends AbstractAccessableCourseNode {
 
-	private static final long serialVersionUID = -6356528553926887733L;
+	private static final long serialVersionUID = -{{ range(11565253926887733, 99565253926887733) | random }}L;
 
 	@Autowired
 	public transient final {{ cookiecutter.appnameUpper }}BeanFactory {{ cookiecutter.appname }}BeanFactory;

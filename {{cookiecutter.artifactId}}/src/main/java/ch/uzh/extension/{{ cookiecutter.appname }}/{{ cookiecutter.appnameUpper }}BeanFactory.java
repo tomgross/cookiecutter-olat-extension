@@ -16,27 +16,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 
 @Configuration
-public abstract class {{ cookiecutter.appnameUpper }}BeanFactory {
+public class {{ cookiecutter.appnameUpper }}BeanFactory {
 
 	private final LmsuzhTranslator lmsuzhTranslator;
 
-	private final RepositoryEntryDAO repositoryEntryDAO;
-
-	private final RepositoryEntryRelationDAO repositoryEntryRelationDAO;
 
 	@Autowired
-	public {{ cookiecutter.appnameUpper }}BeanFactory(LmsuzhTranslator lmsuzhTranslator,
-							   RepositoryEntryDAO repositoryEntryDAO,
-							   RepositoryEntryRelationDAO repositoryEntryRelationDAO) {
+	public {{ cookiecutter.appnameUpper }}BeanFactory(LmsuzhTranslator lmsuzhTranslator) {
 		this.lmsuzhTranslator = lmsuzhTranslator;
-		this.repositoryEntryDAO = repositoryEntryDAO;
-		this.repositoryEntryRelationDAO = repositoryEntryRelationDAO;
 	}
 
 	public {{ cookiecutter.appnameUpper }}NodeEditController createNodeEditController(UserRequest userRequest,
