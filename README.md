@@ -72,3 +72,22 @@ Add pointer to spring context in *lmsuzh-extension-config/src/main/resources/con
 
 ```
  
+## Testing
+
+Integration Testing assumes you have a PostgreSQL database
+running with the following specs:
+
+ * PostgreSQL *9.4* to *10*
+ * Port: *5432* (Standard PostgreSQL port)
+ * Database: *olattest*
+ * User owning database: *olat*
+ * User password: *olat*
+
+Before running the tests you need to bootstrap the structure:
+
+```bash
+
+ $ cd openolat-lms-DEVELOPMENT/src/main/resources/database/postgresql
+ $ psql -h localhost olattest olat  < setupDatabase.sql
+
+```

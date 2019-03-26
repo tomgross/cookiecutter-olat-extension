@@ -24,8 +24,8 @@ public class {{ cookiecutter.appnameUpper }}CourseNodeConfiguration extends Abst
 	private final LmsuzhTranslator translator;
 
 	@Autowired
-	{{ cookiecutter.appnameUpper }}CourseNodeConfiguration({{ cookiecutter.appnameUpper }}CourseNode {{ cookiecutter.appname }}CourseNode,
-									LmsuzhTranslator translator) {
+	{{ cookiecutter.appnameUpper }}CourseNodeConfiguration(
+			{{ cookiecutter.appnameUpper }}CourseNode {{ cookiecutter.appname }}CourseNode, LmsuzhTranslator translator) {
 		this.{{ cookiecutter.appname }}CourseNode = {{ cookiecutter.appname }}CourseNode;
 		this.translator = translator;
 		setOrder(250);

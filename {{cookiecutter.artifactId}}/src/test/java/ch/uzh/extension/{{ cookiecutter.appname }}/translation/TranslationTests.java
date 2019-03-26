@@ -1,10 +1,11 @@
 package ch.uzh.extension.{{ cookiecutter.appname }}.translation;
 
+import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslatorInternal;
+import ch.uzh.extension.olatreplacement.translator.translation.Translation;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertTrue;
-import static org
 
 
 public class TranslationTests {

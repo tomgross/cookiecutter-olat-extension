@@ -100,6 +100,22 @@
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 		</dependency>
+
+		<!-- needed for OlatTestCase in integration tests -->
+		<dependency>
+			<groupId>org.openolat</groupId>
+			<artifactId>openolat-lms</artifactId>
+			<version>${org.openolat.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>ch.uzh.extension</groupId>
+			<artifactId>lmsuzh-extension-database</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
