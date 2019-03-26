@@ -1,4 +1,4 @@
-package ch.uzh.extension.{{ cookiecutter.appname }}.translation.language.run;
+package ch.uzh.extension.{{ cookiecutter.appname }}.translation.run;
 
 import ch.uzh.extension.olatreplacement.translator.translation.FrenchTranslation;
 import ch.uzh.extension.{{ cookiecutter.appname }}.translation.{{ cookiecutter.appnameUpper }}TranslationKeyPrefix;

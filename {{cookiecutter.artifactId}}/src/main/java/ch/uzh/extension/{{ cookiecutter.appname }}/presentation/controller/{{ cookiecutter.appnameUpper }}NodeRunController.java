@@ -1,7 +1,6 @@
 package ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller;
 
 import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslator;
-import ch.uzh.extension.{{ cookiecutter.appname}}.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
 import ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller.{{ cookiecutter.appnameUpper }}Controller;
 import ch.uzh.extension.{{ cookiecutter.appname }}.translation.{{ cookiecutter.appnameUpper }}TranslationKeyPrefix;
 import org.olat.core.gui.UserRequest;

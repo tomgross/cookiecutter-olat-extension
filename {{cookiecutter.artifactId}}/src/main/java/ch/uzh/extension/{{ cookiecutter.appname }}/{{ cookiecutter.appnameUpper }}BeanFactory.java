@@ -8,13 +8,8 @@ import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.control.WindowControl;
 import org.olat.course.ICourse;
 import org.olat.course.run.userview.UserCourseEnvironment;
-import org.olat.repository.manager.RepositoryEntryDAO;
-import org.olat.repository.manager.RepositoryEntryRelationDAO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
 
 
 @Configuration

@@ -37,32 +37,17 @@ public class {{ cookiecutter.appnameUpper }}Controller extends BasicController i
 
     @Override
     protected void event(UserRequest userRequest, Component source, Event event) {
-        // Do nothing here
+        // Nothing at the moment
     }
 
     @Override
     protected void event(UserRequest userRequest, Controller source, Event event) {
-        /*
-        switch (event.getCommand()) {
-            case "list-events":
-                putContent(videoListController);
-                break;
-            case "play-event":
-                PlayEventEvent playEventEvent = (PlayEventEvent) event;
-                String identifier = playEventEvent.getIdentifier();
-                if (identifier != null) {
-                    videoPlayerController.setIdentifier(identifier);
-                    videoPlayerController.update();
-                    putContent(videoPlayerController);
-                }
-                break;
-        }
-        */
+        // Nothing at the moment
     }
 
     @Override
     protected void doDispose() {
-        // Do nothing here
+        // Nothing at the moment
     }
 
     private void putContent(@UnknownInitialization {{ cookiecutter.appnameUpper }}Controller this, Controller controller) {
