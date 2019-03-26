@@ -1,7 +1,7 @@
 package ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller;
 
+import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
 import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslator;
-import ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller.{{ cookiecutter.appnameUpper }}Controller;
 import ch.uzh.extension.{{ cookiecutter.appname }}.translation.{{ cookiecutter.appnameUpper }}TranslationKeyPrefix;
 import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.components.Component;
@@ -22,11 +22,9 @@ import java.util.List;
 public class {{ cookiecutter.appnameUpper }}NodeRunController extends BasicController implements Activateable2 {
 
     private {{ cookiecutter.appnameUpper }}Controller {{ cookiecutter.appname }}Controller;
-    private {{ cookiecutter.appnameUpper }}CourseNode courseNode;
 
     public {{ cookiecutter.appnameUpper }}NodeRunController(UserRequest userRequest, WindowControl windowControl, {{ cookiecutter.appnameUpper }}CourseNode courseNode, LmsuzhTranslator translator) {
         super(userRequest, windowControl, translator.getLegacyTranslator({{ cookiecutter.appnameUpper }}TranslationKeyPrefix.prefix));
-        this.courseNode = courseNode;
 
         // set logger on this run controller
         addLoggingResourceable(LoggingResourceable.wrap(courseNode));

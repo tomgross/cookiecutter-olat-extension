@@ -34,9 +34,11 @@ public class ConfigurationTabController extends BasicController {
 
 	@Override
 	protected void event(UserRequest userRequest, Component source, Event event) {
+		// not implemented yet
 	}
 
 	@Override
 	protected void doDispose() {
+		// not implemented yet
 	}
 }

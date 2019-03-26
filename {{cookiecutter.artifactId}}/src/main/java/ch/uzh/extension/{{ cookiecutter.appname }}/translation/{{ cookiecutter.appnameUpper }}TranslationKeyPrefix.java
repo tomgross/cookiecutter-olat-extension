@@ -1,10 +1,6 @@
 package ch.uzh.extension.{{ cookiecutter.appname }}.translation;
 
 import ch.uzh.extension.olatreplacement.translator.translation.TranslationKeyPrefix;
-import ch.uzh.extension.{{ cookiecutter.appname }}.translation.language.run.{{ cookiecutter.appnameUpper }}RunEnglishTranslation;
-import ch.uzh.extension.{{ cookiecutter.appname }}.translation.language.run.{{ cookiecutter.appnameUpper }}RunFrenchTranslation;
-import ch.uzh.extension.{{ cookiecutter.appname }}.translation.language.run.{{ cookiecutter.appnameUpper }}RunGermanTranslation;
-import ch.uzh.extension.{{ cookiecutter.appname }}.translation.language.run.{{ cookiecutter.appnameUpper }}RunItalianTranslation;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -19,9 +15,9 @@ public class {{ cookiecutter.appnameUpper }}TranslationKeyPrefix extends Transla
 	}
 
 	protected {{ cookiecutter.appnameUpper }}TranslationKeyPrefix(String courseNodeName) {
-		super(new {{ cookiecutter.appnameUpper }}RunEnglishTranslation(courseNodeName),
-				new {{ cookiecutter.appnameUpper }}RunFrenchTranslation(courseNodeName),
-				new {{ cookiecutter.appnameUpper }}RunGermanTranslation(courseNodeName),
-				new {{ cookiecutter.appnameUpper }}RunItalianTranslation(courseNodeName));
+		super(new {{ cookiecutter.appnameUpper }}EnglishTranslation(courseNodeName),
+				new {{ cookiecutter.appnameUpper }}FrenchTranslation(courseNodeName),
+				new {{ cookiecutter.appnameUpper }}GermanTranslation(courseNodeName),
+				new {{ cookiecutter.appnameUpper }}ItalianTranslation(courseNodeName));
 	}
 }

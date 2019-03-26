@@ -6,8 +6,6 @@ import ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller.{{ co
 import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
 import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.control.WindowControl;
-import org.olat.course.ICourse;
-import org.olat.course.run.userview.UserCourseEnvironment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,12 +21,11 @@ public class {{ cookiecutter.appnameUpper }}BeanFactory {
 		this.lmsuzhTranslator = lmsuzhTranslator;
 	}
 
-	public {{ cookiecutter.appnameUpper }}NodeEditController createNodeEditController(UserRequest userRequest,
-		WindowControl windowControl,
-		ICourse courseResource,
-		UserCourseEnvironment userCourseEnvironment) {
-		return new {{ cookiecutter.appnameUpper }}NodeEditController(this, userRequest,
-		windowControl, courseResource, userCourseEnvironment, lmsuzhTranslator);
+	public {{ cookiecutter.appnameUpper }}NodeEditController createNodeEditController(
+			UserRequest userRequest, WindowControl windowControl) {
+		return new {{ cookiecutter.appnameUpper }}NodeEditController(
+				userRequest, windowControl, lmsuzhTranslator
+		);
 	}
 
 	public {{ cookiecutter.appnameUpper }}NodeRunController create{{ cookiecutter.appnameUpper }}NodeRunController(

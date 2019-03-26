@@ -2,8 +2,6 @@ package ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller;
 
 import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslator;
 import ch.uzh.extension.{{ cookiecutter.appname }}.translation.{{ cookiecutter.appnameUpper }}TranslationKeyPrefix;
-import ch.uzh.extension.tool.NullUtil;
-import org.checkerframework.checker.initialization.qual.UnknownInitialization;
 import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.components.Component;
 import org.olat.core.gui.components.velocity.VelocityContainer;
@@ -33,6 +31,7 @@ public class {{ cookiecutter.appnameUpper }}Controller extends BasicController i
 
     @Override
     public void activate(UserRequest userRequest, List<ContextEntry> entries, StateEntry state) {
+        // Nothing at the moment
     }
 
     @Override
@@ -48,10 +47,6 @@ public class {{ cookiecutter.appnameUpper }}Controller extends BasicController i
     @Override
     protected void doDispose() {
         // Nothing at the moment
-    }
-
-    private void putContent(@UnknownInitialization {{ cookiecutter.appnameUpper }}Controller this, Controller controller) {
-        NullUtil.notNullOrFail({{ cookiecutter.appname }}Panel).put("{{ cookiecutter.appname }}", controller.getInitialComponent());
     }
 
 }

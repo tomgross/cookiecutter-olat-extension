@@ -18,7 +18,7 @@ import static ch.uzh.extension.{{ cookiecutter.appname }}.translation.{{ cookiec
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class {{ cookiecutter.appnameUpper }}CourseNodeConfiguration extends AbstractCourseNodeConfiguration {
 
-	public final static String ALIAS = "{{ cookiecutter.appname }}";
+	public static final String ALIAS = "{{ cookiecutter.appname }}";
 
 	private final {{ cookiecutter.appnameUpper }}CourseNode {{ cookiecutter.appname }}CourseNode;
 	private final LmsuzhTranslator translator;

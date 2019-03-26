@@ -32,7 +32,7 @@ public class {{ cookiecutter.appnameUpper }}CourseNode extends AbstractAccessabl
 	private static final long serialVersionUID = -{{ range(11565253926887733, 99565253926887733) | random }}L;
 
 	@Autowired
-	public transient final {{ cookiecutter.appnameUpper }}BeanFactory {{ cookiecutter.appname }}BeanFactory;
+	public final transient {{ cookiecutter.appnameUpper }}BeanFactory {{ cookiecutter.appname }}BeanFactory;
 
 	@Autowired
 	public {{ cookiecutter.appnameUpper }}CourseNode({{ cookiecutter.appnameUpper }}BeanFactory {{ cookiecutter.appname }}BeanFactory) {
@@ -46,10 +46,10 @@ public class {{ cookiecutter.appnameUpper }}CourseNode extends AbstractAccessabl
 												   BreadcrumbPanel stackPanel,
 												   ICourse course,
 												   UserCourseEnvironment userCourseEnvironment) {
-		{{ cookiecutter.appnameUpper }}NodeEditController childTabCntrllr = {{ cookiecutter.appname }}BeanFactory.createNodeEditController(userRequest, windowControl,
-			course, userCourseEnvironment);
-		NodeEditController nodeEditController = new NodeEditController(userRequest, windowControl, course.getEditorTreeModel(), course, userCourseEnvironment, childTabCntrllr);
-		return nodeEditController;
+		{{ cookiecutter.appnameUpper }}NodeEditController childTabCntrllr = {{ cookiecutter.appname }}BeanFactory.createNodeEditController(
+				userRequest, windowControl);
+		return new NodeEditController(
+				userRequest, windowControl, course.getEditorTreeModel(), course, userCourseEnvironment, childTabCntrllr);
 	}
 
 	@Override
