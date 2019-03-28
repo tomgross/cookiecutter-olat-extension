@@ -23,61 +23,57 @@ package ch.uzh.extension.{{ cookiecutter.appname }};
 
 import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
 import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNodeConfiguration;
-import org.olat.course.nodes.CourseNodeConfiguration;
+import org.olat.course.editor.CourseEditorEnv;
+import org.olat.course.editor.StatusDescription;
 import org.olat.core.CoreSpringFactory;
 import org.junit.Before;
 import org.junit.Test;
 
-// import java.util.Locale;
-import java.util.Map;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertFalse;
+import static org.mockito.Mockito.mock;
 
 /**
  */
 @SuppressWarnings("initialization.fields.uninitialized")
 public class IT{{ cookiecutter.appnameUpper }}CourseNodeTest extends {{ cookiecutter.appnameUpper }}TestCase {
 
-	private {{ cookiecutter.appnameUpper }}CourseNodeConfiguration courseNodeConfig;
+	private {{ cookiecutter.appnameUpper }}CourseNode courseNode;
 
 	@Before
-	public void getNodeConfig() {
-		courseNodeConfig = ({{ cookiecutter.appnameUpper }}CourseNodeConfiguration) CoreSpringFactory.getBean("{{ cookiecutter.appname }}CourseNodeConfiguration");
+	public void getCourseNode() {
+		{{ cookiecutter.appnameUpper }}CourseNodeConfiguration courseNodeConfig = ({{ cookiecutter.appnameUpper }}CourseNodeConfiguration) CoreSpringFactory.getBean(
+		"{{ cookiecutter.appname }}CourseNodeConfiguration");
+		courseNode = ({{ cookiecutter.appnameUpper }}CourseNode) courseNodeConfig.getInstance();
 	}
 
 	@Test
-	public void NodeConfigBean() {
-		Map<String, CourseNodeConfiguration> configs = CoreSpringFactory.getBeansOfType(CourseNodeConfiguration.class);
-		assertTrue(configs.containsKey("{{ cookiecutter.appname }}CourseNodeConfiguration"));
+	public void createEditController() {
 	}
 
 	@Test
-	public void getAlias() {
-		assertEquals("{{ cookiecutter.appname }}", courseNodeConfig.getAlias());
+	public void isConfigValid() {
+		assertEquals(StatusDescription.NOERROR, courseNode.isConfigValid());
+	}
+
+	@Test(expected = UnsupportedOperationException.class)
+	public void getReferencedRepositoryEntry() {
+		courseNode.getReferencedRepositoryEntry();
 	}
 
 	@Test
-	public void getGroup() {
-		assertEquals("content", courseNodeConfig.getGroup());
+	public void needsReferenceToARepositoryEntry() {
+		assertFalse(courseNode.needsReferenceToARepositoryEntry());
 	}
 
 	@Test
-	public void getInstance() {
-		{{ cookiecutter.appnameUpper }}CourseNode courseNode = ({{ cookiecutter.appnameUpper }}CourseNode) courseNodeConfig.getInstance();
-		assertEquals("{{ cookiecutter.appname }}", courseNode.getType());
+	public void createNodeRunConstructionResult() {
 	}
 
 	@Test
-	public void getLinkText() {
-		// assertEquals(courseNodeConfig.getLinkText(Locale.ENGLISH), "");
-		/* Fails currently */
-		assertTrue(Boolean.TRUE);
-	}
-
-	@Test
-	public void getIconCSSClass() {
-		assertEquals("o_{{ cookiecutter.appname }}_icon", courseNodeConfig.getIconCSSClass());
+	public void isConfigValidEnv() {
+		CourseEditorEnv env = mock(CourseEditorEnv.class);
+		assertEquals(0, courseNode.isConfigValid(env).length);
 	}
 
 }

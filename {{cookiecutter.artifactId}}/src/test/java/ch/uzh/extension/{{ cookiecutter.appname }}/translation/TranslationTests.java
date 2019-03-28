@@ -44,7 +44,7 @@ public class TranslationTests {
 
 	@Test
 	public void testFullTranslation() {
-		H5pTranslationKeyPrefix trans = new H5pTranslationKeyPrefix();
+		{{ cookiecutter.appnameUpper }}TranslationKeyPrefix trans = new {{ cookiecutter.appnameUpper }}TranslationKeyPrefix();
 		Translation english = trans.getInstance(LmsuzhTranslatorInternal.Language.English);
 		assertTrue(english.getKeyValuePairs().containsValue("Save"));
 	}

@@ -1,4 +1,4 @@
-package ch.uzh.extension.h5p;
+package ch.uzh.extension.{{ cookiecutter.appname }};
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,16 +14,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
 /**
- * @author Martin Schraner
  */
 @DependsOn("databaseMigrator")
 @ContextConfiguration(loader = MockServletContextWebContextLoader.class, locations = {
 	"classpath:/org/olat/_spring/mainContext.xml",
-	"classpath:h5pTestContext.xml"})
+	"classpath:{{ cookiecutter.appname }}TestContext.xml"})
 @SuppressWarnings("initialization.fields.uninitialized")
-public abstract class H5pTestCase extends AbstractJUnit4SpringContextTests {
+public abstract class {{ cookiecutter.appnameUpper }}TestCase extends AbstractJUnit4SpringContextTests {
 
-	private static final OLog LOG = Tracing.createLoggerFor(H5pTestCase.class);
+	private static final OLog LOG = Tracing.createLoggerFor({{ cookiecutter.appnameUpper }}TestCase.class);
 
 	@Autowired
 	protected DB dbInstance;

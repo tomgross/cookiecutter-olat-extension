@@ -8,7 +8,16 @@ of the type *CourseNodeConfiguration*
 
 ## Translations
 
+TBD
+
 ## Forms
+
+TBD
+
+## Persistence
+
+TBD
+
 
 ## Configuration
 
