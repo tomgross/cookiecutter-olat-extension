@@ -23,14 +23,21 @@ package ch.uzh.extension.{{ cookiecutter.appname }};
 
 import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
 import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNodeConfiguration;
+import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslator;
+import org.olat.core.gui.UserRequest;
+import org.olat.core.gui.components.stack.BreadcrumbPanel;
+import org.olat.core.gui.control.WindowControl;
+import org.olat.core.gui.util.WindowControlMocker;
+import org.olat.course.ICourse;
 import org.olat.course.editor.CourseEditorEnv;
 import org.olat.course.editor.StatusDescription;
 import org.olat.core.CoreSpringFactory;
 import org.junit.Before;
 import org.junit.Test;
+import org.olat.course.run.userview.NodeEvaluation;
+import org.olat.course.run.userview.UserCourseEnvironment;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 /**
@@ -42,13 +49,21 @@ public class IT{{ cookiecutter.appnameUpper }}CourseNodeTest extends {{ cookiecu
 
 	@Before
 	public void getCourseNode() {
-		{{ cookiecutter.appnameUpper }}CourseNodeConfiguration courseNodeConfig = ({{ cookiecutter.appnameUpper }}CourseNodeConfiguration) CoreSpringFactory.getBean(
-		"{{ cookiecutter.appname }}CourseNodeConfiguration");
-		courseNode = ({{ cookiecutter.appnameUpper }}CourseNode) courseNodeConfig.getInstance();
+		LmsuzhTranslator translator = new NoopLmsuzhTranslator();
+		{{ cookiecutter.appnameUpper }}BeanFactory beanFactory = new {{ cookiecutter.appnameUpper }}BeanFactory(translator);
+		courseNode = new {{ cookiecutter.appnameUpper }}CourseNode(beanFactory);
 	}
 
 	@Test
 	public void createEditController() {
+		UserRequest userRequest = mock(UserRequest.class);
+		WindowControl windowControl = new WindowControlMocker();
+		BreadcrumbPanel stackPanel = mock(BreadcrumbPanel.class);
+		ICourse course = mock(ICourse.class);
+		UserCourseEnvironment userCourseEnvironment = mock(UserCourseEnvironment.class);
+		// courseNode.createEditController(userRequest, windowControl, stackPanel, course, userCourseEnvironment);
+		// TODO: add a sensible assertion
+		assertTrue(true);
 	}
 
 	@Test
@@ -57,9 +72,7 @@ public class IT{{ cookiecutter.appnameUpper }}CourseNodeTest extends {{ cookiecu
 	}
 
 	@Test(expected = UnsupportedOperationException.class)
-	public void getReferencedRepositoryEntry() {
-		courseNode.getReferencedRepositoryEntry();
-	}
+	public void getReferencedRepositoryEntry() { courseNode.getReferencedRepositoryEntry(); }
 
 	@Test
 	public void needsReferenceToARepositoryEntry() {
@@ -68,6 +81,14 @@ public class IT{{ cookiecutter.appnameUpper }}CourseNodeTest extends {{ cookiecu
 
 	@Test
 	public void createNodeRunConstructionResult() {
+		UserRequest userRequest = mock(UserRequest.class);
+		WindowControl windowControl = new WindowControlMocker();
+		UserCourseEnvironment userCourseEnvironment = mock(UserCourseEnvironment.class);
+		NodeEvaluation nodeEvaluation = mock(NodeEvaluation.class);
+		courseNode.createNodeRunConstructionResult(
+			userRequest, windowControl, userCourseEnvironment, nodeEvaluation, "");
+		// TODO: add a sensible assertion
+		assertTrue(true);
 	}
 
 	@Test

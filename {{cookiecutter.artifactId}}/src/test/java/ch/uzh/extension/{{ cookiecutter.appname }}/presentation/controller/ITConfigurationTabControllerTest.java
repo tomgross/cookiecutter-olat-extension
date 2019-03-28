@@ -1,6 +1,7 @@
 package ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller;
 
 import ch.uzh.extension.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}TestCase;
+import ch.uzh.extension.{{ cookiecutter.appname }}.NoopLmsuzhTranslator;
 import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslator;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,14 +27,14 @@ public class ITConfigurationTabControllerTest extends {{ cookiecutter.appnameUpp
 	private ConfigurationTabController configTabController;
 
 	@Before
-	public void createForm() {
+	public void setUp() {
 		HttpServletRequest httpRequest = new MockHttpServletRequest();
 		((MockHttpServletRequest) httpRequest).setRequestURI("/olat");
 		HttpServletResponse httpResponse = mock(HttpServletResponse.class);
 
 		UserRequestImpl userRequest = new UserRequestImpl("/olat", httpRequest, httpResponse);
 		WindowControl windowControl = new WindowControlMocker();
-		LmsuzhTranslator translator = new LmsuzhTranslator();
+		LmsuzhTranslator translator = new NoopLmsuzhTranslator();
 
 		configTabController = new ConfigurationTabController(userRequest, windowControl, translator);
 	}

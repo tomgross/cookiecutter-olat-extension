@@ -3,6 +3,7 @@ package ch.uzh.extension.{{ cookiecutter.appname }}.presentation.controller;
 import ch.uzh.extension.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}TestCase;
 import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
 import ch.uzh.extension.{{ cookiecutter.appname }}.nodes.{{ cookiecutter.appnameUpper }}CourseNodeConfiguration;
+import ch.uzh.extension.{{ cookiecutter.appname }}.NoopLmsuzhTranslator;
 import ch.uzh.extension.olatreplacement.translator.LmsuzhTranslator;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,7 +36,7 @@ public class IT{{ cookiecutter.appnameUpper }}NodeRunControllerTest extends {{ c
 
 		UserRequestImpl userRequest = new UserRequestImpl("/olat", httpRequest, httpResponse);
 		WindowControl windowControl = new WindowControlMocker();
-		LmsuzhTranslator translator = new LmsuzhTranslator();
+		LmsuzhTranslator translator = new NoopLmsuzhTranslator();
 
 		{{ cookiecutter.appnameUpper }}CourseNodeConfiguration courseNodeConfig = ({{ cookiecutter.appnameUpper }}CourseNodeConfiguration) CoreSpringFactory.getBean(
 			"{{ cookiecutter.appname }}CourseNodeConfiguration");

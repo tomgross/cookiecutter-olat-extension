@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.UserRequestImpl;
 import org.olat.core.gui.components.Component;
-import org.olat.core.gui.components.tabbedpane.TabbedPane;
 import org.olat.core.gui.control.Controller;
 import org.olat.core.gui.control.Event;
 import org.olat.core.gui.control.WindowControl;
@@ -18,18 +17,16 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import java.util.Locale;
-
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.mock;
 
 @SuppressWarnings("initialization.fields.uninitialized")
-public class IT{{ cookiecutter.appnameUpper }}NodeEditControllerTest extends {{ cookiecutter.appnameUpper }}TestCase {
+public class IT{{ cookiecutter.appnameUpper }}ControllerTest extends {{ cookiecutter.appnameUpper }}TestCase {
 
-	private {{ cookiecutter.appnameUpper }}NodeEditController editController;
+	private {{ cookiecutter.appnameUpper }}Controller {{ cookiecutter.appname }}Controller;
 
 	@Before
-	public void createRunController() {
+	public void setUp() {
 		HttpServletRequest httpRequest = new MockHttpServletRequest();
 		((MockHttpServletRequest) httpRequest).setRequestURI("/olat");
 		HttpServletResponse httpResponse = mock(HttpServletResponse.class);
@@ -38,11 +35,21 @@ public class IT{{ cookiecutter.appnameUpper }}NodeEditControllerTest extends {{ 
 		WindowControl windowControl = new WindowControlMocker();
 		LmsuzhTranslator translator = new NoopLmsuzhTranslator();
 
-		editController = new {{ cookiecutter.appnameUpper }}NodeEditController(userRequest, windowControl, translator);
+		{{ cookiecutter.appname }}Controller = new {{ cookiecutter.appnameUpper }}Controller(userRequest, windowControl, translator);
 	}
 
 	@Test
 	public void activate() {
+		// {{ cookiecutter.appname }}Controller.activate();
+		assertTrue(true);
+	}
+
+	@Test
+	public void event_controller() {
+		UserRequest userRequest = mock(UserRequest.class);
+		Controller source = mock(Controller.class);
+		Event event = mock(Event.class);
+		{{ cookiecutter.appname }}Controller.event(userRequest, source, event);
 		assertTrue(true);
 	}
 
@@ -51,40 +58,13 @@ public class IT{{ cookiecutter.appnameUpper }}NodeEditControllerTest extends {{ 
 		UserRequest userRequest = mock(UserRequest.class);
 		Component source = mock(Component.class);
 		Event event = mock(Event.class);
-		editController.event(userRequest, source, event);
+		{{ cookiecutter.appname }}Controller.event(userRequest, source, event);
 		assertTrue(true);
 	}
 
 	@Test
 	public void doDispose() {
-		editController.doDispose();
+		{{ cookiecutter.appname }}Controller.doDispose();
 		assertTrue(true);
 	}
-
-	@Test
-	public void addTabs() {
-		TabbedPane result = editController.getTabbedPane();
-		assertNull(result);
-		TabbedPane pane = new TabbedPane("foo", Locale.ENGLISH);
-		editController.addTabs(pane);
-		result = editController.getTabbedPane();
-		assertTrue(result.containsTab("pane.tab.configuration"));
-	}
-
-	@Test
-	public void getPaneKeys() {
-		String[] PANE_KEYS = {"pane.tab.configuration"};
-		assertEquals(PANE_KEYS, editController.getPaneKeys());
-	}
-
-	@Test
-	public void event_controller() {
-		UserRequest userRequest = mock(UserRequest.class);
-		Controller source = mock(Controller.class);
-		Event event = mock(Event.class);
-		editController.event(userRequest, source, event);
-		assertTrue(true);
-	}
-
-
 }
