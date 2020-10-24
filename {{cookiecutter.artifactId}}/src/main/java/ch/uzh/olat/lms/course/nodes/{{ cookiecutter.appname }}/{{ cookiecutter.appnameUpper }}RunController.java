@@ -8,27 +8,17 @@ import org.olat.core.gui.control.Controller;
 import org.olat.core.gui.control.WindowControl;
 import org.olat.core.gui.control.controller.BasicController;
 import org.olat.util.logging.activity.LoggingResourceable;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ListIterator;
 
 public class {{ cookiecutter.appnameUpper }}RunController extends BasicController {
 
   private VelocityContainer container;
-  private RunListController runListController;
   private final {{ cookiecutter.appnameUpper }}CourseNode courseNode;
-
-  @Autowired
-  @SuppressWarnings("SpringJavaAutowiredMembersInspection")
-  private RestClient restClient;
 
   public {{ cookiecutter.appnameUpper }}RunController(
       UserRequest userRequest, WindowControl windowControl, {{ cookiecutter.appnameUpper }}CourseNode courseNode) {
     super(userRequest, windowControl);
     this.courseNode = courseNode;
-    restClient = restClient.withUsers(courseNode.getData().getUsers());
     container = createVelocityContainer("run");
     putInitialPanel(container);
     addLoggingResourceable(LoggingResourceable.wrap(courseNode));

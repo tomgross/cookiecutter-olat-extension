@@ -1,35 +1,15 @@
 package ch.uzh.olat.lms.course.nodes;
 
-import org.olat.core.gui.UserRequest;
-import org.olat.core.gui.components.stack.BreadcrumbPanel;
-import org.olat.core.gui.control.WindowControl;
-import org.olat.course.ICourse;
-import org.olat.course.editor.CourseEditorEnv;
-import org.olat.course.editor.NodeEditController;
-import org.olat.course.editor.StatusDescription;
-import org.olat.course.nodes.AbstractAccessableCourseNode;
-import org.olat.course.run.navigation.NodeRunConstructionResult;
-import org.olat.course.run.userview.NodeEvaluation;
-import org.olat.course.run.userview.UserCourseEnvironment;
-import org.olat.repository.RepositoryEntry;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Configurable;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-
-
-
-import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appnameUpper }}.{{ cookiecutter.appnameUpper }}EditController;
-import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appnameUpper }}.{{ cookiecutter.appnameUpper }}RunController;
-import ch.uzh.olat.lms.course.nodes.switchcast.model.CourseNodeData;
-import com.thoughtworks.xstream.annotations.XStreamAlias;
+import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}EditController;
+import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}RunController;
+import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }}.model.CourseNodeData;
+import java.io.File;
 import lombok.Getter;
+import org.olat.core.gui.control.Controller;
+import org.olat.core.gui.control.generic.tabbable.TabbableController;
 import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.components.stack.BreadcrumbPanel;
-import org.olat.core.gui.control.Controller;
 import org.olat.core.gui.control.WindowControl;
-import org.olat.core.gui.control.generic.tabbable.TabbableController;
 import org.olat.course.ICourse;
 import org.olat.course.editor.CourseEditorEnv;
 import org.olat.course.editor.NodeEditController;
@@ -43,9 +23,11 @@ import org.olat.course.run.userview.NodeEvaluation;
 import org.olat.course.run.userview.UserCourseEnvironment;
 import org.olat.repository.RepositoryEntry;
 
-import java.io.File;
 
 public class {{ cookiecutter.appnameUpper }}CourseNode extends AbstractAccessableCourseNode {
+
+  @Getter
+  private CourseNodeData data;
 
   public {{ cookiecutter.appnameUpper }}CourseNode(String type) {
     super(type);
@@ -100,9 +82,6 @@ public class {{ cookiecutter.appnameUpper }}CourseNode extends AbstractAccessabl
       ICourse sourceCrourse) {
     super.postCopy(environmentMapper, processType, course, sourceCrourse);
     data.setResourceableId(course.getResourceableId());
-
-    // Clear granted users of old course when copying
-    data.getUsers().clear();
   }
 
   @Override
@@ -113,9 +92,6 @@ public class {{ cookiecutter.appnameUpper }}CourseNode extends AbstractAccessabl
       Processing processType) {
     super.postImport(importDirectory, course, environmentMapper, processType);
     data.setResourceableId(course.getResourceableId());
-
-    // Clear granted users of old course when importing
-    data.getUsers().clear();
   }
 
   @Override

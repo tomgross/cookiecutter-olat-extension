@@ -1,4 +1,4 @@
-package ch.uzh.olat.lms.course.nodes.switchcast;
+package ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }};
 
 import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
 import org.olat.core.gui.UserRequest;
@@ -8,22 +8,13 @@ import org.olat.core.gui.components.form.flexible.elements.FormLink;
 import org.olat.core.gui.components.form.flexible.elements.MultipleSelectionElement;
 import org.olat.core.gui.components.form.flexible.impl.FormBasicController;
 import org.olat.core.gui.components.form.flexible.impl.FormEvent;
-import org.olat.core.gui.components.link.Link;
 import org.olat.core.gui.control.Controller;
-import org.olat.core.gui.control.Event;
 import org.olat.core.gui.control.WindowControl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class EditConfigurationController extends FormBasicController {
 
   private final {{ cookiecutter.appnameUpper }}CourseNode courseNode;
-  private MultipleSelectionElement grantAccessSelection;
-  private MultipleSelectionElement showDownloadLinksSelection;
-  private FormLink resetUsersButton;
-
-  @Autowired
-  @SuppressWarnings("SpringJavaAutowiredMembersInspection")
-  private UserService userService;
 
   public EditConfigurationController(
       UserRequest userRequest, WindowControl windowControl, {{ cookiecutter.appnameUpper }}CourseNode courseNode) {

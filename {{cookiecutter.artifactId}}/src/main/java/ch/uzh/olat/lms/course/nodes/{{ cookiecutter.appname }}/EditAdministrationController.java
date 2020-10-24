@@ -20,15 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @SuppressWarnings("SpringJavaAutowiredMembersInspection")
 public class EditAdministrationController extends FormBasicController {
 
-  private final {{ cookiecutter.appnameUpper }}CourseNode courseNode
-
-  @Autowired private RepositoryService repositoryService;
-
-  @Autowired private OLATResourceManager resourceManager;
-
-  @Autowired private BaseSecurity baseSecurity;
-
-  @Autowired private UserService userService;
+  private final {{ cookiecutter.appnameUpper }}CourseNode courseNode;
 
   public EditAdministrationController(
       UserRequest userRequest, WindowControl windowControl, {{ cookiecutter.appnameUpper }}CourseNode courseNode) {

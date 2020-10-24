@@ -16,9 +16,16 @@ import java.util.Locale;
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class {{ cookiecutter.appnameUpper }}CourseNodeConfiguration extends AbstractCourseNodeConfiguration {
 
+  private static final String ALIAS = "pr";
+
   public {{ cookiecutter.appnameUpper }}CourseNodeConfiguration() {
     setOrder(1000);
   }
+
+  @Override
+	public String getAlias() {
+		return ALIAS;
+	}
 
   @Override
   public CourseNode getInstance() {

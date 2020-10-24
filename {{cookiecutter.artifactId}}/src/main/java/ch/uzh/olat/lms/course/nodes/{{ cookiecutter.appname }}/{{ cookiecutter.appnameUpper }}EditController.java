@@ -35,17 +35,11 @@ public class {{ cookiecutter.appnameUpper }}EditController extends ActivateableT
   private TabbedPane myTabbedPane;
   private final ConditionEditController accessibilityConditionEditController;
   private final {{ cookiecutter.appnameUpper }}CourseNode courseNode;
-  private final EditEventsController editEventsController;
-  private final EditSeriesController editSeriesController;
   private final EditConfigurationController editConfigurationController;
   private final EditAdministrationController editAdministrationController;
 
-  @Autowired private RestClient restClient;
-
   @Autowired private BaseSecurity baseSecurity;
-
-  @Autowired private UserService userService;
-
+  
   public {{ cookiecutter.appnameUpper }}EditController(
       UserRequest userRequest,
       WindowControl windowControl,
@@ -55,12 +49,6 @@ public class {{ cookiecutter.appnameUpper }}EditController extends ActivateableT
     super(userRequest, windowControl);
     this.courseNode = courseNode;
 
-    // Add current user to granted users list for newly created course nodes
-    if (courseNode.getData().getUsers().isEmpty()) {
-      courseNode.getData().getUsers().add(userService.createUser(userRequest.getIdentity()));
-    }
-
-    restClient = restClient.withUsers(courseNode.getData().getUsers());
     Condition accessCondition = courseNode.getPreConditionAccess();
     ICourse course = CourseFactory.loadCourse(olatResource);
     accessibilityConditionEditController =
@@ -71,12 +59,7 @@ public class {{ cookiecutter.appnameUpper }}EditController extends ActivateableT
             accessCondition,
             AssessmentHelper.getAssessableNodes(course.getEditorTreeModel(), courseNode));
     listenTo(accessibilityConditionEditController);
-    editEventsController =
-        new EditEventsController(userRequest, windowControl, restClient, courseNode);
-    listenTo(editEventsController);
-    editSeriesController =
-        new EditSeriesController(userRequest, windowControl, restClient, courseNode);
-    listenTo(editSeriesController);
+
     editConfigurationController =
         new EditConfigurationController(userRequest, windowControl, courseNode);
     listenTo(editConfigurationController);
@@ -92,8 +75,6 @@ public class {{ cookiecutter.appnameUpper }}EditController extends ActivateableT
         translate(PANE_TAB_ACCESSIBILITY),
         accessibilityConditionEditController.getWrappedDefaultAccessConditionVC(
             translate("condition.accessibility.title")));
-    tabbedPane.addTab(translate(PANE_TAB_EVENTS), editEventsController.getInitialComponent());
-    tabbedPane.addTab(translate(PANE_TAB_SERIES), editSeriesController.getInitialComponent());
     tabbedPane.addTab(
         translate(PANE_TAB_CONFIGURATION), editConfigurationController.getInitialComponent());
     if (baseSecurity.getRoles(getIdentity()).isAdministrator()) {
@@ -118,14 +99,6 @@ public class {{ cookiecutter.appnameUpper }}EditController extends ActivateableT
       if (event == Event.CHANGED_EVENT) {
         Condition cond = accessibilityConditionEditController.getCondition();
         courseNode.setPreConditionAccess(cond);
-        fireEvent(userRequest, NodeEditController.NODECONFIG_CHANGED_EVENT);
-      }
-    } else if (source == editEventsController) {
-      if (event == Event.CHANGED_EVENT) {
-        fireEvent(userRequest, NodeEditController.NODECONFIG_CHANGED_EVENT);
-      }
-    } else if (source == editSeriesController) {
-      if (event == Event.CHANGED_EVENT) {
         fireEvent(userRequest, NodeEditController.NODECONFIG_CHANGED_EVENT);
       }
     } else if (source == editConfigurationController) {
