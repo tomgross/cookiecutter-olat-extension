@@ -1,7 +1,6 @@
 {
-	"project_name": "OLAT LMS Extension",
+	"project_name": "OLAT LMS Peer Review",
 	"appname": "peerreview",
 	"appnameUpper": "{{ cookiecutter.appname | capitalize }}",
-	"artifactId": "olat-lms-{{ cookiecutter.appname }}",
-	"groupId": "ch.uzh.olat.lms"
+	"artifactId": "olat-lms-{{ cookiecutter.appname }}"
 }
