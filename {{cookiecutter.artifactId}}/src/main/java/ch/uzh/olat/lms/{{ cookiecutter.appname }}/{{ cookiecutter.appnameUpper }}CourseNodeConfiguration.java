@@ -1,6 +1,6 @@
-package ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }};
+package ch.uzh.olat.lms.{{ cookiecutter.appname }};
 
-import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
+import ch.uzh.olat.lms.{{ cookiecutter.appname }}.node.{{ cookiecutter.appnameUpper }}CourseNode;
 import org.olat.core.gui.translator.Translator;
 import org.olat.core.util.Util;
 import org.olat.course.nodes.AbstractCourseNodeConfiguration;
@@ -45,6 +45,6 @@ public class {{ cookiecutter.appnameUpper }}CourseNodeConfiguration extends Abst
 
   @Override
   public String getIconCSSClass() {
-    return "o_podcast_icon";
+    return "o_{{ cookiecutter.appname }}_icon";
   }
 }

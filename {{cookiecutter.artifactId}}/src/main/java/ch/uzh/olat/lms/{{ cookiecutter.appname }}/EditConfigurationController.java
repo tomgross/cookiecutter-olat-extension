@@ -1,28 +1,20 @@
-package ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }};
+package ch.uzh.olat.lms.{{ cookiecutter.appname }};
 
-import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
-
-import org.olat.basesecurity.BaseSecurity;
+import ch.uzh.olat.lms.{{ cookiecutter.appname }}.node.{{ cookiecutter.appnameUpper }}CourseNode;
 import org.olat.core.gui.UserRequest;
 import org.olat.core.gui.components.form.flexible.FormItem;
 import org.olat.core.gui.components.form.flexible.FormItemContainer;
-import org.olat.core.gui.components.form.flexible.elements.FlexiTableElement;
 import org.olat.core.gui.components.form.flexible.impl.FormBasicController;
 import org.olat.core.gui.components.form.flexible.impl.FormEvent;
 import org.olat.core.gui.control.Controller;
-import org.olat.core.gui.control.Event;
 import org.olat.core.gui.control.WindowControl;
-import org.olat.repository.RepositoryService;
-import org.olat.resource.OLATResourceManager;
-import org.springframework.beans.factory.annotation.Autowired;
 
 
-@SuppressWarnings("SpringJavaAutowiredMembersInspection")
-public class EditAdministrationController extends FormBasicController {
+public class EditConfigurationController extends FormBasicController {
 
   private final {{ cookiecutter.appnameUpper }}CourseNode courseNode;
 
-  public EditAdministrationController(
+  public EditConfigurationController(
       UserRequest userRequest, WindowControl windowControl, {{ cookiecutter.appnameUpper }}CourseNode courseNode) {
     super(userRequest, windowControl);
     this.courseNode = courseNode;
@@ -32,12 +24,12 @@ public class EditAdministrationController extends FormBasicController {
   @Override
   protected void initForm(
       FormItemContainer formLayout, Controller listener, UserRequest userRequest) {
-    setFormTitle("edit_admin.title");
+    setFormTitle("edit_config.title");
   }
 
   @Override
   protected void formInnerEvent(UserRequest userRequest, FormItem source, FormEvent event) {
-      fireEvent(userRequest, Event.CHANGED_EVENT);
+
   }
 
   @Override
@@ -45,5 +37,5 @@ public class EditAdministrationController extends FormBasicController {
 
   @Override
   protected void doDispose() {}
-
+  
 }

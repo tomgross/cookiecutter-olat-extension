@@ -1,6 +1,6 @@
-package ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }};
+package ch.uzh.olat.lms.{{ cookiecutter.appname }};
 
-import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appnameUpper }}CourseNode;
+import ch.uzh.olat.lms.{{ cookiecutter.appname }}.node.{{ cookiecutter.appnameUpper }}CourseNode;
 
 import org.olat.basesecurity.BaseSecurity;
 import org.olat.core.gui.UserRequest;

@@ -1,4 +1,4 @@
-package ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }}.model;
+package ch.uzh.olat.lms.{{ cookiecutter.appname }}.model;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import lombok.Getter;

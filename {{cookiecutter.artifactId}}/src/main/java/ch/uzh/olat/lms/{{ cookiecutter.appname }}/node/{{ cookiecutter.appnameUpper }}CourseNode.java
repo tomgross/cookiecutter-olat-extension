@@ -1,8 +1,8 @@
-package ch.uzh.olat.lms.course.nodes;
+package ch.uzh.olat.lms.{{ cookiecutter.appname }}.node;
 
-import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}EditController;
-import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}RunController;
-import ch.uzh.olat.lms.course.nodes.{{ cookiecutter.appname }}.model.CourseNodeData;
+import ch.uzh.olat.lms.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}EditController;
+import ch.uzh.olat.lms.{{ cookiecutter.appname }}.{{ cookiecutter.appnameUpper }}RunController;
+import ch.uzh.olat.lms.{{ cookiecutter.appname }}.model.CourseNodeData;
 import java.io.File;
 import lombok.Getter;
 import org.olat.core.gui.control.Controller;
